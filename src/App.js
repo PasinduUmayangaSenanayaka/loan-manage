@@ -1,25 +1,24 @@
 import React from 'react';
-import Login from './login';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import CustomerRegistrationPage from './components/CustomerRegistrationPage';
+import PawnGeneratePage from './components/PawnGeneratePage';
+import PersonalDetailsPage from './components/PersonalDetailsPage';
+import JobDetailsPage from './components/JobDetailsPage';
+import FamilyDetailsPage from './components/FamilyDetailsPage';
 
-
-function App() {
-  const handleAdminLogin = () => {
-    // Handle admin login logic here
-    alert('Admin Login clicked');
-  };
-
-  const handleStaffLogin = () => {
-    // Handle staff login logic here
-    alert('Staff Login clicked');
-  };
-
+const App = () => {
   return (
-    <div className="App">
-      <Login 
-        onAdminLogin={handleAdminLogin}
-        onStaffLogin={handleStaffLogin}
-      />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/customer-registration" component={CustomerRegistrationPage} />
+        <Route path="/pawn-generate" component={PawnGeneratePage} />
+        <Route path="/personal-details" component={PersonalDetailsPage} />
+        <Route path="/job-details" component={JobDetailsPage} />
+        <Route path="/family-details" component={FamilyDetailsPage} />
+      </Switch>
+    </Router>
   );
 }
 
